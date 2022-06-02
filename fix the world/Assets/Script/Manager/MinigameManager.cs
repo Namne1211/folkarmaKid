@@ -7,11 +7,17 @@ public delegate void OnMinigameDone(int gameIndex);
 public delegate void OnRunningMinigame(int gameIndex);
 public class MinigameManager : MonoBehaviour
 {
+
     public GameObject maze;
     public GameObject wheel;
     public GameObject line;
     public GameObject touchpad;
 
+    public GameObject environmentMachine;
+    public GameObject humidMachine;
+    public GameObject tempatureMachine;
+
+    public GameObject product;
     public OnMinigameDone onMinigameDone;
     public OnRunningMinigame onRunningMinigame;
 
@@ -49,14 +55,17 @@ public class MinigameManager : MonoBehaviour
         switch (gameIndex)
         {
             case 0:
+                Instantiate(product, environmentMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0,0,0,0));
                 touchpad.SetActive(true);
                 maze.SetActive(false);
                 break;
             case 1:
+                Instantiate(product, humidMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
                 wheel.SetActive(false);
                 break;
             case 2:
+                Instantiate(product, tempatureMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
                 line.SetActive(false);

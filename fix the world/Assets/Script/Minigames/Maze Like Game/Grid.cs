@@ -72,7 +72,7 @@ public class Grid : MonoBehaviour
 
 
 
-    private void OnDisable()
+    public void clearList()
     {
         GameObject[] powerList = GameObject.FindGameObjectsWithTag("Power");
         GameObject[] normalList = GameObject.FindGameObjectsWithTag("Grid");

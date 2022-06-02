@@ -124,7 +124,7 @@ public class TouchPad : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 				
-				if (hit.collider.tag == "Plant")
+				if (hit.collider.tag == "Plant" || hit.collider.tag == "product")
 				{
 					dragingObj = hit.collider.gameObject;
 					dragingObj.GetComponent<dragObject>().MovingStart();

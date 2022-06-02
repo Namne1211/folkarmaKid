@@ -16,6 +16,8 @@ public class GridMovement : MonoBehaviour
 
     //setup line renderer
     [SerializeField]
+    GameObject Grid;
+    [SerializeField]
     GameObject part;
     [SerializeField]
     LineRenderer lr;
@@ -131,6 +133,7 @@ public class GridMovement : MonoBehaviour
             }
             else
             {
+                Grid.GetComponent<Grid>().clearList();
                 resetGameState();
             }
         }
@@ -138,6 +141,7 @@ public class GridMovement : MonoBehaviour
 
     private void resetGameState()
     {
+        
         //reset line
         foreach (GameObject part in partList)
         {

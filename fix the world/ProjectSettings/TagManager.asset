@@ -7,6 +7,10 @@ TagManager:
   - Plant
   - Desk
   - Machine
+  - Line
+  - Power
+  - product
+  - finalPoint
   layers:
   - Default
   - TransparentFX
