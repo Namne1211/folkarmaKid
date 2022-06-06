@@ -33,15 +33,15 @@ public class dragObject : MonoBehaviour
         if (transform.position.x < -horizontalBounderies || transform.position.x > horizontalBounderies ||
             transform.position.z < -verticalBounderies || transform.position.z > verticalBounderies)
         {
-            RemoveObj(1);
+            RemoveObj();
         }
 
     }
 
-    void RemoveObj(int ind)
+    public void RemoveObj()
     {
         onDestroy?.Invoke(gameObject);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
 
     }
     public void MovingStart()

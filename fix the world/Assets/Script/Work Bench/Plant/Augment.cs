@@ -12,7 +12,7 @@ public enum Environment
 public enum humid
 {
     wet,
-    moise,
+    moist,
     dry
 }
 public enum tempature
