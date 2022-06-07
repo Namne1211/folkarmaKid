@@ -65,8 +65,9 @@ public class GridMovement : MonoBehaviour
         {
 
             if (targetPosition.x <= -movingtiles * 2.5 || targetPosition.x >= movingtiles * 2.5 ||
-                targetPosition.y <= -movingtiles * 2.5 || targetPosition.y >= movingtiles * 2.5)
+                targetPosition.z <= -movingtiles * 2.5 || targetPosition.z >= movingtiles * 2.5)
             {
+                stopTouch = false;
                 moving = false;
                 return;
             }
@@ -78,6 +79,7 @@ public class GridMovement : MonoBehaviour
                 //rendering line and update at tartget
                 SetupLine();
                 startPosition = targetPosition;
+                stopTouch = false;
                 moving = false;
                 //Debug.Log(moving);
                 return;
@@ -133,7 +135,6 @@ public class GridMovement : MonoBehaviour
             }
             else
             {
-                Grid.GetComponent<Grid>().clearList();
                 resetGameState();
             }
         }
@@ -142,6 +143,8 @@ public class GridMovement : MonoBehaviour
     private void resetGameState()
     {
         
+        stopTouch = false;
+
         //reset line
         foreach (GameObject part in partList)
         {

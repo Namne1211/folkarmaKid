@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCursor: {fileID: 0}
+  canNotBeDestroy: 1
   horizontalBounderies: 8
   verticalBounderies: 5
 --- !u!135 &2620018780594150159

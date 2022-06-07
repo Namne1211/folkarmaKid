@@ -11,6 +11,7 @@ TagManager:
   - Power
   - product
   - finalPoint
+  - Grid
   layers:
   - Default
   - TransparentFX

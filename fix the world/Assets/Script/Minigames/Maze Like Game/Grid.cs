@@ -74,17 +74,6 @@ public class Grid : MonoBehaviour
 
     public void clearList()
     {
-        GameObject[] powerList = GameObject.FindGameObjectsWithTag("Power");
-        GameObject[] normalList = GameObject.FindGameObjectsWithTag("Grid");
-
-        foreach (GameObject power in powerList)
-        {
-            Destroy(power);
-        }
-        foreach (GameObject normal in normalList)
-        {
-            Destroy(normal);
-        }
         ObjectIndex.Clear();
         ObjectData.Clear();
     }

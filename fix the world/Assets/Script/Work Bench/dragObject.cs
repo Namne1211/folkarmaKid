@@ -7,10 +7,11 @@ public class dragObject : MonoBehaviour
 {
     //public MinigameManager minigameManager;
     public GameObject targetCursor;
+    public bool canNotBeDestroy;
     private Vector3 mOffset;
 
     private float mZcord;
-
+   
     private Vector3 startPos;
 
     public OnDestroyHandler onDestroy;
@@ -33,7 +34,8 @@ public class dragObject : MonoBehaviour
         if (transform.position.x < -horizontalBounderies || transform.position.x > horizontalBounderies ||
             transform.position.z < -verticalBounderies || transform.position.z > verticalBounderies)
         {
-            RemoveObj();
+            if(!canNotBeDestroy)
+                RemoveObj();
         }
 
     }
