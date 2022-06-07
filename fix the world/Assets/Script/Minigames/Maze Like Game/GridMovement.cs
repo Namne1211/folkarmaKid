@@ -45,12 +45,23 @@ public class GridMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        stopTouch = true;
+        wait();
         //setup starting line
         lr.useWorldSpace = false;
         startPosition = transform.localPosition;
         OriginPos = transform.localPosition;
         lr.SetPosition(0, OriginPos);
         lr.SetPosition(1, OriginPos);
+    }
+
+    IEnumerator wait()
+    {
+       
+
+        yield return new WaitForSeconds(1);
+
+        stopTouch = false;
     }
     void Update()
     {
@@ -79,7 +90,7 @@ public class GridMovement : MonoBehaviour
                 //rendering line and update at tartget
                 SetupLine();
                 startPosition = targetPosition;
-                stopTouch = false;
+                //stopTouch = false;
                 moving = false;
                 //Debug.Log(moving);
                 return;

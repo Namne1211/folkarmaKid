@@ -46,6 +46,8 @@ public class CheckPoint : MonoBehaviour
             {
                 Debug.Log("check");
                 RenewPos();
+                line.GetComponent<IndicateLine>().speed += 40f;
+                line.GetComponent<IndicateLine>().direction = -line.GetComponent<IndicateLine>().direction;
             }
 
         }

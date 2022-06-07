@@ -117,7 +117,8 @@ public class TouchPad : MonoBehaviour
 			if (dragingObj != null)
             {
 				dragingObj.GetComponent<dragObject>().IsMoving();
-				trashcan.SetActive(true);
+				if (!dragingObj.GetComponent<dragObject>().canNotBeDestroy)
+					trashcan.SetActive(true);
             }
             
 				
