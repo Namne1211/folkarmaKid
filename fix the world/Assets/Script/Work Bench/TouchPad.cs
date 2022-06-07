@@ -24,9 +24,13 @@ public class TouchPad : MonoBehaviour
 
 	GameObject dragingObj;
 	GameObject current;
+
+	Color highlight;
+	
 	void Start()
 	{
 		ResetMousePosition();
+		ColorUtility.TryParseHtmlString("#6AFF4F", out highlight);
 	}
 
 	void Update()
@@ -39,14 +43,14 @@ public class TouchPad : MonoBehaviour
 			{
 				current = hit.collider.gameObject;
 				if (current.GetComponent<Renderer>().materials.Length > 1)
-					current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.green);
+					current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
 
 			}
 			else
 			{
 				if (current != null)
 					if (current.GetComponent<Renderer>().materials.Length > 1)
-						current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.black);
+						current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
 
 			}
 
@@ -138,8 +142,10 @@ public class TouchPad : MonoBehaviour
 					dragingObj.GetComponent<dragObject>().MovingStart();
 					draging = true;
 					if (hit.collider.gameObject.GetComponent<Renderer>().materials.Length > 1)
-						hit.collider.gameObject.GetComponent<Renderer>().materials[1].SetColor("_color", Color.green);
-
+					{
+						hit.collider.gameObject.GetComponent<Renderer>().materials[1].SetColor("_color", Color.blue);
+						
+					}
 				}
 
 			}
