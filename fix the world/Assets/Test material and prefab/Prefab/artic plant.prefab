@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCursor: {fileID: 0}
-  horizontalBounderies: 7
-  verticalBounderies: 5
+  canNotBeDestroy: 0
+  horizontalBounderies: 3
 --- !u!114 &17542594632622294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCursor: {fileID: 0}
-  horizontalBounderies: 7
-  verticalBounderies: 5
+  canNotBeDestroy: 0
+  horizontalBounderies: 3
 --- !u!114 &8951653966408627227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,8 +427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCursor: {fileID: 0}
-  horizontalBounderies: 7
-  verticalBounderies: 5
+  canNotBeDestroy: 0
+  horizontalBounderies: 3
 --- !u!65 &588018971996660974
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCursor: {fileID: 0}
-  horizontalBounderies: 7
-  verticalBounderies: 5
+  canNotBeDestroy: 0
+  horizontalBounderies: 3
 --- !u!114 &4278262373139184537
 MonoBehaviour:
   m_ObjectHideFlags: 0

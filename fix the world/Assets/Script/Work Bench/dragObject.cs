@@ -17,9 +17,8 @@ public class dragObject : MonoBehaviour
     public OnDestroyHandler onDestroy;
 
     //bounderies
-    public int horizontalBounderies = 8;
+    public int horizontalBounderies=3;
 
-    public int verticalBounderies = 5;
 
     private void Start()
     {
@@ -31,9 +30,9 @@ public class dragObject : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.x < -horizontalBounderies || transform.position.x > horizontalBounderies ||
-            transform.position.z < -verticalBounderies || transform.position.z > verticalBounderies)
+        if (transform.position.z < -horizontalBounderies)
         {
+            
             if(!canNotBeDestroy)
                 RemoveObj();
         }
@@ -64,6 +63,8 @@ public class dragObject : MonoBehaviour
 
     public void IsMoving()
     {
+        Debug.Log(transform.position.z);
+        Debug.Log(horizontalBounderies);
         //decide moving range
         Vector3 movingRange = GetMouseWorldPos() + mOffset + new Vector3(0, 1, 0);
 

@@ -10,10 +10,12 @@ public class TouchPad : MonoBehaviour
 	public bool toMove;
 	public bool movementX;
 	public bool movementY;
+	
 
 	[Header("Speed Increment")]
 	public float speed = .5f;
 
+	public GameObject trashcan;
 	Vector2 currentMousePosition;
 	Vector2 mouseDeltaPosition;
 	Vector2 lastMousePosition;
@@ -109,7 +111,13 @@ public class TouchPad : MonoBehaviour
 		if (draging)
 		{
 			if (dragingObj != null)
+            {
 				dragingObj.GetComponent<dragObject>().IsMoving();
+				trashcan.SetActive(true);
+            }
+            
+				
+				
 		}
 
 	}
@@ -141,6 +149,7 @@ public class TouchPad : MonoBehaviour
 			draging = false;
 			dragingObj = null;
 		}
+		trashcan.SetActive(false);
 		istouchpadactive = false;
 	}
 }

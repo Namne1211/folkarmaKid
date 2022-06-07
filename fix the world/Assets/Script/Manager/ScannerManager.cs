@@ -32,7 +32,7 @@ public class ScannerManager : MonoBehaviour
         if (augment < objectLimit)
         {
             
-            Vector3 rndPos = new Vector3(Random.Range(-1, 1), aumentHolder.transform.position.y, Random.Range(-2, 2));
+            Vector3 rndPos = new Vector3(Random.Range(-2, 2), aumentHolder.transform.position.y, Random.Range(-3, 0));
             switch (PlantIndex)
             {
                 case 1:
