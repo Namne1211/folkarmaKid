@@ -43,7 +43,7 @@ public class Wheel : MonoBehaviour
                     if (rotateZ > -10)
                     {
                         progress += 0.035f;
-                        transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
+                        transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.3f);
                     }
 
                 }
@@ -59,7 +59,7 @@ public class Wheel : MonoBehaviour
                         if (rotateZ > 170)
                         {
                             progress += 0.035f;
-                            transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
+                            transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.3f);
                         }
 
                     }
@@ -69,7 +69,7 @@ public class Wheel : MonoBehaviour
                     if (rotateZ < -degreeAngle)
                     {
                         progress += 0.035f;
-                        transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
+                        transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.3f);
                     }
             }
 

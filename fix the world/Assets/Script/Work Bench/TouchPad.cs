@@ -10,7 +10,7 @@ public class TouchPad : MonoBehaviour
 	public bool toMove;
 	public bool movementX;
 	public bool movementY;
-	
+	public MinigameManager manager;
 
 	[Header("Speed Increment")]
 	public float speed = .5f;
@@ -30,7 +30,9 @@ public class TouchPad : MonoBehaviour
 	void Start()
 	{
 		ResetMousePosition();
+
 		ColorUtility.TryParseHtmlString("#6AFF4F", out highlight);
+		manager.onRunningMinigame += deactivatetrash;
 	}
 
 	void Update()
@@ -159,4 +161,10 @@ public class TouchPad : MonoBehaviour
 		trashcan.SetActive(false);
 		istouchpadactive = false;
 	}
+
+	void deactivatetrash(int i)
+    {
+		trashcan.SetActive(false);
+	}
+
 }
