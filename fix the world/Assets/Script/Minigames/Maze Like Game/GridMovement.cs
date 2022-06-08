@@ -223,8 +223,7 @@ public class GridMovement : MonoBehaviour
 
             }
         }
-
-        if (Input.GetMouseButtonUp(0))
+           if (Input.touchCount<1)
         {
             stopTouch = false;
             EndTouchPos = Input.mousePosition;
