@@ -35,60 +35,67 @@ public class Machine : MonoBehaviour
         minigameManager.onMinigameDone += DestroyPlantUse;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!Done)
+           
+            if (other.gameObject.tag == "Plant")
+            {
+                if (Input.GetMouseButtonUp(0))
+                    switch (machineType)
+                {
+                    case MachineTypes.environment:
+                        if (other.gameObject.GetComponent<Augment>() != null)
+                            if (other.gameObject.GetComponent<Augment>().environment == tasksManager.trop)
+                            {
+                                Debug.Log("1");
+                                currentuse = this;
+                                plantUsed = other.gameObject;
+                                minigameManager.onRunningMinigame?.Invoke(0);
+                            }
+                            else
+                            {
+                                other.GetComponent<dragObject>().RemoveObj();
+                                //false part animation
+                            }
+                        break;
+                    case MachineTypes.humid:
+                        if (other.gameObject.GetComponent<Augment>() != null)
+                            if (other.gameObject.GetComponent<Augment>().humid == tasksManager.humid)
+                            {
+                                Debug.Log("2");
+                                plantUsed = other.gameObject;
+                                currentuse = this;
+                                minigameManager.onRunningMinigame?.Invoke(1);
+                            }
+                            else
+                            {
+                                other.GetComponent<dragObject>().RemoveObj();
+                                //false part animation
+                            }
+                        break;
+                    case MachineTypes.tempature:
+                        if (other.gameObject.GetComponent<Augment>() != null)
+                            if (other.gameObject.GetComponent<Augment>().temp == tasksManager.temp)
+                            {
+                                Debug.Log("3");
+                                currentuse = this;
+                                plantUsed = other.gameObject;
+                                minigameManager.onRunningMinigame?.Invoke(2);
+                            }
+                            else
+                            {
+                                other.GetComponent<dragObject>().RemoveObj();
+                                //false part animation
+                            }
+                        break;
+                }
+            }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(!Done)
-        if (other.gameObject.tag == "Plant")
-        {
-            switch (machineType)
-            {
-                case MachineTypes.environment:
-                    if (other.gameObject.GetComponent<Augment>() != null)
-                        if (other.gameObject.GetComponent<Augment>().environment == tasksManager.trop)
-                        {
-                        Debug.Log("1");
-                        currentuse = this;
-                        plantUsed=other.gameObject;
-                        minigameManager.onRunningMinigame?.Invoke(0);
-                        }
-                        else
-                        {
-                            other.GetComponent<dragObject>().RemoveObj();
-                        //false part animation
-                        }
-                    break;
-                case MachineTypes.humid:
-                    if(other.gameObject.GetComponent<Augment>()!=null)
-                    if (other.gameObject.GetComponent<Augment>().humid == tasksManager.humid)
-                        {
-                        Debug.Log("2");
-                        plantUsed = other.gameObject;
-                        currentuse = this;
-                        minigameManager.onRunningMinigame?.Invoke(1);
-                        }
-                        else
-                        {
-                            other.GetComponent<dragObject>().RemoveObj();
-                            //false part animation
-                        }
-                    break;
-                case MachineTypes.tempature:
-                    if (other.gameObject.GetComponent<Augment>() != null)
-                        if (other.gameObject.GetComponent<Augment>().temp == tasksManager.temp)
-                        {
-                        Debug.Log("3");
-                        currentuse = this;
-                        plantUsed = other.gameObject;
-                        minigameManager.onRunningMinigame?.Invoke(2);
-                        }
-                        else
-                        {
-                            other.GetComponent<dragObject>().RemoveObj();
-                            //false part animation
-                        }
-                    break;
-            }
-        }
+        
     }
 
     void DestroyPlantUse(int i)

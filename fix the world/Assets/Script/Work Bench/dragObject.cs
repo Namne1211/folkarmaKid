@@ -32,9 +32,9 @@ public class dragObject : MonoBehaviour
     {
         if (transform.position.z < -horizontalBounderies)
         {
-            
-            if(!canNotBeDestroy)
-                RemoveObj();
+            if(Input.GetMouseButtonUp(0))
+                if(!canNotBeDestroy)
+                    RemoveObj();
         }
 
     }

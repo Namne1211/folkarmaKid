@@ -37,9 +37,9 @@ public class Grid : MonoBehaviour
     void InstantObstacle()
     {
         //random choice for power station
-        int firstPower = Random.Range(0, ObjectIndex.Count - 1);
+        int firstPower = ObjectIndex[Random.Range(0, ObjectIndex.Count - 1)];
         ObjectIndex.Remove(firstPower);
-        int SecondPower = Random.Range(0, ObjectIndex.Count - 1);
+        int SecondPower = ObjectIndex[Random.Range(0, ObjectIndex.Count - 1)];
 
         Instantiate(powerPoint, ObjectData[firstPower].position, new Quaternion(0, 0, 0, 0), holder.transform);
         ObjectData[firstPower].Open = true;

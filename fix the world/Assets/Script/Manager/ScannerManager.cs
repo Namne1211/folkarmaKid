@@ -67,4 +67,13 @@ public class ScannerManager : MonoBehaviour
     {
         ObjToSpawn.Remove(objectToRemove);
     }
+
+    public void RemoveAll()
+    {
+        if(ObjToSpawn!=null)
+        foreach(var obj in ObjToSpawn)
+        {
+            obj.GetComponent<dragObject>().onDestroy?.Invoke(obj);
+        }
+    }
 }

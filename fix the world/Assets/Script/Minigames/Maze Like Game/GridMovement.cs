@@ -181,6 +181,13 @@ public class GridMovement : MonoBehaviour
     //swipe input
     void swipe()
     {
+      /*  if (Input.touchCount > 0)
+        {
+            if(Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                StartTouchPos = Input.GetTouch(0).position;
+            }
+        }*/
         if (Input.GetMouseButtonDown(0))
         {
             StartTouchPos = Input.mousePosition;
@@ -192,37 +199,46 @@ public class GridMovement : MonoBehaviour
             Vector3 Distance = CurrentTouchPos - StartTouchPos;
             if (!stopTouch)
             {
-                if (Distance.x < -swipeRange)
+                if (Mathf.Abs(Distance.x) > Mathf.Abs(Distance.y))
                 {
-                    targetPosition = transform.localPosition + Vector3.left * movingtiles;
+                    if (Distance.x < -swipeRange)
+                    {
+                        targetPosition = transform.localPosition + Vector3.left * movingtiles;
 
-                    moving = true;
-                    stopTouch = true;
+                        moving = true;
+                        stopTouch = true;
+                    }
+                    else if (Distance.x > swipeRange)
+                    {
+                        targetPosition = transform.localPosition + Vector3.right * movingtiles;
+
+                        moving = true;
+                        stopTouch = true;
+                    }
                 }
-                else if (Distance.x > swipeRange)
+                else
                 {
-                    targetPosition = transform.localPosition + Vector3.right * movingtiles;
+                    if (Distance.y < -swipeRange)
+                    {
+                        targetPosition = transform.localPosition + Vector3.back * movingtiles;
 
-                    moving = true;
-                    stopTouch = true;
-                }
-                else if (Distance.y < -swipeRange)
-                {
-                    targetPosition = transform.localPosition + Vector3.back * movingtiles;
+                        moving = true;
+                        stopTouch = true;
+                    }
+                    else if (Distance.y > swipeRange)
+                    {
+                        targetPosition = transform.localPosition + Vector3.forward * movingtiles;
 
-                    moving = true;
-                    stopTouch = true;
+                        moving = true;
+                        stopTouch = true;
+                    }
                 }
-                else if (Distance.y > swipeRange)
-                {
-                    targetPosition = transform.localPosition + Vector3.forward * movingtiles;
-
-                    moving = true;
-                    stopTouch = true;
-                }
+                
+              
 
             }
         }
+               
            if (Input.touchCount<1)
         {
             stopTouch = false;

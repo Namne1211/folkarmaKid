@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public delegate void OnMinigameDone(int gameIndex);
@@ -20,7 +21,11 @@ public class MinigameManager : MonoBehaviour
     public GameObject product;
     public OnMinigameDone onMinigameDone;
     public OnRunningMinigame onRunningMinigame;
-
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
     private void Start()
     {
         onRunningMinigame += RunGame;
@@ -72,5 +77,19 @@ public class MinigameManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void Minigame(int i)
+    {
+        onRunningMinigame.Invoke(i);
+    }
+    public void EndGame(int i)
+    {
+        onMinigameDone.Invoke(i);
+    }
+
+    public void resetGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
