@@ -70,10 +70,10 @@ public class TouchPad : MonoBehaviour
 				{
 					//Debug.Log(Camera.main.ScreenToWorldPoint(targetObject.transform.position));
 					targetObject.transform.Translate(mouseDeltaPosition.x * speed, mouseDeltaPosition.y * speed, 0f);
-					/*if (Display.displays.Length > 1)
+					if (Display.displays.Length > 1)
 					{
-						targetObject.transform.position = new Vector3(Mathf.Clamp(targetObject.transform.position.x, 0, Display.displays[0].renderingWidth), Mathf.Clamp(targetObject.transform.position.y * speed, 0, Display.displays[1].renderingHeight), targetObject.transform.position.z);
-					}*/
+						targetObject.transform.position = new Vector3(Mathf.Clamp(targetObject.transform.position.x, 0, Display.displays[1].renderingWidth), Mathf.Clamp(targetObject.transform.position.y * speed, 0, Display.displays[1].renderingHeight), targetObject.transform.position.z);
+					}
 				}
 				else
 				if (movementX)
