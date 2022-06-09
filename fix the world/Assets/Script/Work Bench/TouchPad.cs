@@ -45,15 +45,16 @@ public class TouchPad : MonoBehaviour
 			{
 				current = hit.collider.gameObject;
 				if (current.GetComponent<Renderer>().materials.Length > 1)
-					current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
+					//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
+					current.GetComponent<Renderer>().materials[1].SetFloat("_position", -2.16f);
 
 			}
 			else
 			{
 				if (current != null)
 					if (current.GetComponent<Renderer>().materials.Length > 1)
-						current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
-
+						//current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
+						current.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
 			}
 
 
