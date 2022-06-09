@@ -12,7 +12,7 @@ public class Wheel : MonoBehaviour
     public Gradient grad;
     public Image fill;
     public Camera cam;
-
+    Vector3 dif;
     private void Start()
     {
         progressbar.maxValue = winRate;
@@ -27,15 +27,21 @@ public class Wheel : MonoBehaviour
         progressbar.value = progress;
         fill.color = grad.Evaluate(progressbar.normalizedValue);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)||Input.touchCount>0)
         {
-            //findif mous position
-            Vector3 dif = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)) - transform.position;
+            if (Input.touchCount > 0)
+            {
+                dif = cam.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)) - transform.position;
+            }
+            else
+            {
+                dif = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)) - transform.position;
+            }
             dif.Normalize();
             float rotateZ = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
             Debug.Log(rotateZ);
-            transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.2f);
-            progress += 0.015f;
+            transform.localRotation = Quaternion.AngleAxis(rotateZ,Vector3.forward);
+            progress += 0.025f;
 
             //restric the rotating angle
             /* float degreeAngle;
