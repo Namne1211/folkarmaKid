@@ -7,7 +7,7 @@ public class Combiner : MonoBehaviour
 {
     public GameObject panel;
     public int productRecieve;
-
+    public static int playtime;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "product")
@@ -23,7 +23,10 @@ public class Combiner : MonoBehaviour
         {
             StartCoroutine(ResetgGameState());
             //change screen and play animation
+            playtime++;
+            
             Debug.Log("win");
+
         }
     }
 
