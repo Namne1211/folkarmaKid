@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Wheel : MonoBehaviour
 {
     public MinigameManager minigameManager;
@@ -27,16 +26,12 @@ public class Wheel : MonoBehaviour
         progressbar.value = progress;
         fill.color = grad.Evaluate(progressbar.normalizedValue);
 
-        if (Input.GetMouseButton(0)||Input.touchCount>0)
+        if (Input.touchCount>0)
         {
-            if (Input.touchCount > 0)
-            {
-                dif = cam.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)) - transform.position;
-            }
-            else
-            {
-                dif = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10)) - transform.position;
-            }
+           
+
+            dif = cam.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 10)) - transform.position;
+         
             dif.Normalize();
             float rotateZ = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
             Debug.Log(rotateZ);

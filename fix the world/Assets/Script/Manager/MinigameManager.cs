@@ -90,6 +90,9 @@ public class MinigameManager : MonoBehaviour
 
     public void resetGame()
     {
+        Combiner.playtime += 1;
+        PlayerPrefs.SetInt("playTime", Combiner.playtime);
         SceneManager.LoadScene(0);
+        
     }
 }
