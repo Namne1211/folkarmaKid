@@ -52,7 +52,7 @@ public class Machine : MonoBehaviour
                                 Debug.Log("1");
                                 currentuse = this;
                                 plantUsed = other.gameObject;
-                                minigameManager.onRunningMinigame?.Invoke(0);
+                                minigameManager.onRunningMinigame?.Invoke(1);
                             }
                             else
                             {
@@ -67,7 +67,7 @@ public class Machine : MonoBehaviour
                                 Debug.Log("2");
                                 plantUsed = other.gameObject;
                                 currentuse = this;
-                                minigameManager.onRunningMinigame?.Invoke(1);
+                                minigameManager.onRunningMinigame?.Invoke(0);
                             }
                             else
                             {

@@ -145,6 +145,7 @@ public class TouchPad : MonoBehaviour
 					dragingObj = hit.collider.gameObject;
 					dragingObj.GetComponent<dragObject>().MovingStart();
 					draging = true;
+					if(hit.collider.gameObject.GetComponent<Renderer>()!=null)
 					if (hit.collider.gameObject.GetComponent<Renderer>().materials.Length > 1)
 					{
 						hit.collider.gameObject.GetComponent<Renderer>().materials[1].SetColor("_color", Color.blue);

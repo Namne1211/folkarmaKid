@@ -27,7 +27,7 @@ public class Combiner : MonoBehaviour
     }
     private void Update()
     {
-        if (productRecieve >= 6)
+        if (productRecieve >= 4)
         {
             
             StartCoroutine(ResetgGameState());
