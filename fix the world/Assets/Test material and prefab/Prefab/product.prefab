@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7124124908509711024}
   - component: {fileID: 832371975039447063}
   - component: {fileID: -5727969806578281739}
-  - component: {fileID: 2620018780594150159}
   - component: {fileID: 1284438779612941841}
   m_Layer: 0
   m_Name: product
@@ -113,20 +112,6 @@ MonoBehaviour:
   targetCursor: {fileID: 0}
   canNotBeDestroy: 1
   horizontalBounderies: 8
-  verticalBounderies: 5
---- !u!135 &2620018780594150159
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816944553389798065}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1284438779612941841
 Rigidbody:
   m_ObjectHideFlags: 0
