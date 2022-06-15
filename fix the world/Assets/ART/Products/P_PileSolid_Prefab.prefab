@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1476558344442470007}
   - component: {fileID: 7929648965123379681}
-  - component: {fileID: -6041006129594776962}
   - component: {fileID: -3891979232487679349}
+  - component: {fileID: 5712423233607927727}
   m_Layer: 0
   m_Name: P_PileSolid_Prefab
   m_TagString: product
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8108696756375801825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 2883058757635407897}
   - {fileID: 7857212269170418550}
@@ -50,19 +50,6 @@ MonoBehaviour:
   targetCursor: {fileID: 0}
   canNotBeDestroy: 1
   horizontalBounderies: 3
---- !u!135 &-6041006129594776962
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8108696756375801825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-3891979232487679349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,6 +66,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &5712423233607927727
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108696756375801825}
+  m_Material: {fileID: 13400000, guid: 1306e8ff5b400914aa5608e229d2cf0f, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3425013729971759090
 PrefabInstance:
   m_ObjectHideFlags: 0

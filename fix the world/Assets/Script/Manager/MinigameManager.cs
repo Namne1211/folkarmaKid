@@ -29,6 +29,10 @@ public class MinigameManager : MonoBehaviour
     public GameObject teProduct;
     public OnMinigameDone onMinigameDone;
     public OnRunningMinigame onRunningMinigame;
+    [Space]
+    public GameObject cylinderPlace;
+    public Transform spawnplace;
+    public Transform glass;
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -45,10 +49,10 @@ public class MinigameManager : MonoBehaviour
                 enProduct = environmentalProduct[0];
                 break;
             case (Environment.tropical):
-                enProduct = environmentalProduct[0];
+                enProduct = environmentalProduct[1];
                 break;
             case (Environment.desert):
-                enProduct = environmentalProduct[0];
+                enProduct = environmentalProduct[2];
                 break;
         }
         switch (taskManager.humid)
@@ -107,17 +111,21 @@ public class MinigameManager : MonoBehaviour
         switch (gameIndex)
         {
             case 0:
-                Instantiate(huProduct, humidMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0,0,0,0));
+                Instantiate(huProduct, humidMachine.transform.position - new Vector3(0, 0, 1.5f), new Quaternion(0, 0, 0, 0));
+               
                 touchpad.SetActive(true);
                 maze.SetActive(false);
                 break;
             case 1:
-                Instantiate(enProduct, environmentMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0, 0, 0, 0));
+                Instantiate(enProduct, spawnplace.position, spawnplace.rotation);
+                if (cylinderPlace != null)
+                    Destroy(cylinderPlace.gameObject);
+                glass.LeanRotate(new Vector3(60, 0, 0), 0.5f);
                 touchpad.SetActive(true);
                 wheel.SetActive(false);
                 break;
             case 2:
-                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0, 2), new Quaternion(0, 0, 0, 0));
+                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 1.3f), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
                 line.SetActive(false);
