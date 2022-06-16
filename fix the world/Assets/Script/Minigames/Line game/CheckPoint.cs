@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
     public MinigameManager minigameManager;
     public GameObject holder;
     public GameObject line;
+    
     Vector3 prevPos;
     public int point;
     private void Start()
@@ -73,6 +74,7 @@ public class CheckPoint : MonoBehaviour
         {
             minigameManager.onMinigameDone?.Invoke(2);
             point = 0;
+            
         }
     }
 }

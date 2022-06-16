@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Events;
 public class Combiner : MonoBehaviour
 {
+    public UnityEvent CombinerEvent;
     public GameObject panel;
     public int productRecieve;
     public static int playtime;
     int currentPlay;
     public TMPro.TextMeshProUGUI textMeshPro;
+
+    public UnityEvent CompleteEvent;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "product")
@@ -35,8 +39,8 @@ public class Combiner : MonoBehaviour
             playtime++;
             PlayerPrefs.SetInt("playTime", Combiner.playtime);
             Debug.Log("win");
-
-        }
+            CombinerEvent.Invoke();
+}
         textMeshPro.text = PlayerPrefs.GetInt("playTime").ToString();
     }
 

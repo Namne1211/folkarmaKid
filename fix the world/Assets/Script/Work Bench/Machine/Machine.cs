@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Events;
+
+
 
 public enum MachineTypes
 {
@@ -21,7 +24,7 @@ public class Machine : MonoBehaviour
     public MachineTypes machineType;
     public MinigameManager minigameManager;
     bool Done;
-
+    public UnityEvent WrongMachineEvent;
     GameObject plantUsed;
     private void Update()
     {
@@ -57,8 +60,9 @@ public class Machine : MonoBehaviour
                             else
                             {
                                 other.GetComponent<dragObject>().RemoveObj();
-                                //false part animation
-                            }
+                                    WrongMachineEvent.Invoke();
+                                    //false part animation
+                                }
                         break;
                     case MachineTypes.humid:
                         if (other.gameObject.GetComponent<Augment>() != null)
@@ -72,8 +76,9 @@ public class Machine : MonoBehaviour
                             else
                             {
                                 other.GetComponent<dragObject>().RemoveObj();
-                                //false part animation
-                            }
+                                    WrongMachineEvent.Invoke();
+                                    //false part animation
+                                }
                         break;
                     case MachineTypes.tempature:
                         if (other.gameObject.GetComponent<Augment>() != null)
@@ -87,8 +92,9 @@ public class Machine : MonoBehaviour
                             else
                             {
                                 other.GetComponent<dragObject>().RemoveObj();
-                                //false part animation
-                            }
+                                    WrongMachineEvent.Invoke();
+                                    //false part animation
+                                }
                         break;
                 }
             }
