@@ -7,7 +7,7 @@ public class ScreenEnable : MonoBehaviour
     void Start()
     {
 
-        Display.displays[0].SetRenderingResolution(640, 480);
+        Display.displays[0].SetRenderingResolution(960, 600);
         for (int i = 1; i < Display.displays.Length; i++)
         {
             Display.displays[i].Activate();
@@ -15,7 +15,7 @@ public class ScreenEnable : MonoBehaviour
         }
         if(Display.displays.Length > 1)
         {
-            Display.displays[1].SetRenderingResolution(1024, 576);
+            Display.displays[1].SetRenderingResolution(1280, 720);
         }
     }
 

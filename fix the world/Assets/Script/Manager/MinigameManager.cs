@@ -51,7 +51,7 @@ public class MinigameManager : MonoBehaviour
 
     private void Awake()
     {
-
+        Application.targetFrameRate = 30;
         Startgame.Invoke();
 
     }
