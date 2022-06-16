@@ -36,9 +36,7 @@ public class Combiner : MonoBehaviour
             
             StartCoroutine(ResetgGameState());
             //change screen and play animation
-            playtime++;
-            PlayerPrefs.SetInt("playTime", Combiner.playtime);
-            Debug.Log("win");
+            
             CombinerEvent.Invoke();
 }
         textMeshPro.text = PlayerPrefs.GetInt("playTime").ToString();
@@ -50,7 +48,8 @@ public class Combiner : MonoBehaviour
 
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(2);
-
+        playtime++;
+        PlayerPrefs.SetInt("playTime", Combiner.playtime);
         SceneManager.LoadScene(0);
     }
 }
