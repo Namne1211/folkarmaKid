@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
     public MinigameManager minigameManager;
     public GameObject holder;
     public GameObject line;
+    
     Vector3 prevPos;
     public int point;
     private void Start()
@@ -15,10 +16,12 @@ public class CheckPoint : MonoBehaviour
     }
     private void Update()
     {
+        transform.LookAt(holder.transform, new Vector3(0, 1, 0));
 
 
-        transform.LookAt(holder.transform,new Vector3(0,1,0));
         win();
+
+        
     }
     private void OnTriggerStay(Collider other)
     {
@@ -59,7 +62,7 @@ public class CheckPoint : MonoBehaviour
 
         point += 1;
         //float holderLength = (holder.transform.lossyScale.x - transform.lossyScale.x) / 2;
-
+        
         float radius = 0.3f;
         float angle = Random.Range(0, 360);
         Vector3 randomCircle = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad) * radius,0 , Mathf.Sin(angle * Mathf.Deg2Rad) * radius);
@@ -73,6 +76,7 @@ public class CheckPoint : MonoBehaviour
         {
             minigameManager.onMinigameDone?.Invoke(2);
             point = 0;
+            
         }
     }
 }
