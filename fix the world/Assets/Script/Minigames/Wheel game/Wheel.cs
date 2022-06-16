@@ -38,48 +38,6 @@ public class Wheel : MonoBehaviour
             transform.localRotation = Quaternion.AngleAxis(rotateZ,Vector3.forward);
             progress += 0.025f;
 
-            //restric the rotating angle
-            /* float degreeAngle;
-             if (transform.eulerAngles.z >= 0 && transform.eulerAngles.z <= 180)
-             {
-                 if (rotateZ < transform.eulerAngles.z)
-                 {
-                     if (rotateZ > -10)
-                     {
-                         progress += 0.035f;
-                         transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
-                     }
-
-                 }
-
-             }
-             if (transform.eulerAngles.z > 180 && transform.eulerAngles.z < 360)
-             {
-                 degreeAngle = 360 - transform.localEulerAngles.z;
-                 if (rotateZ >= 0 && rotateZ < 180)
-                 {
-                     if (rotateZ >= -degreeAngle)
-                     {
-                         if (rotateZ > 170)
-                         {
-                             progress += 0.035f;
-                             transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
-                         }
-
-                     }
-                 }
-                 else
-                 if (rotateZ < 0 && rotateZ >= -180)
-                     if (rotateZ < -degreeAngle)
-                     {
-                         progress += 0.035f;
-                         transform.LeanRotate(new Vector3(0, 0, rotateZ), 0.1f);
-                     }
-             }
- */
-
-
-
         }
 
         Win();

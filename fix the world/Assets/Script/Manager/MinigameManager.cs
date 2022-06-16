@@ -133,8 +133,8 @@ public class MinigameManager : MonoBehaviour
                 Instantiate(huProduct, humidMachine.transform.position - new Vector3(0, 0, 1.5f), new Quaternion(0, 0, 0, 0));
                
                 touchpad.SetActive(true);
-                maze.SetActive(false);
                 StopMachineEvent.Invoke();
+                Destroy(maze);
                 break;
             case 1:
                 Instantiate(enProduct, spawnplace.position, spawnplace.rotation);
@@ -142,15 +142,15 @@ public class MinigameManager : MonoBehaviour
                     Destroy(cylinderPlace.gameObject);
                 glass.LeanRotate(new Vector3(60, 0, 0), 0.5f);
                 touchpad.SetActive(true);
-                wheel.SetActive(false);
                 StopMachineEvent.Invoke();
+                Destroy(wheel);
                 break;
             case 2:
                 Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 1.3f), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
-                line.SetActive(false);
                 StopMachineEvent.Invoke();
+                Destroy(line);
                 break;
 
         }
