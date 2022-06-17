@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5522534690500878696}
   m_Layer: 0
   m_Name: P_Tropical_Prefab
-  m_TagString: product
+  m_TagString: EnProduct
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

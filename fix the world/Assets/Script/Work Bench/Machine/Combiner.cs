@@ -12,14 +12,30 @@ public class Combiner : MonoBehaviour
     public static int playtime;
     int currentPlay;
     public TMPro.TextMeshProUGUI textMeshPro;
+    public List<GameObject> light;
+
 
     public UnityEvent CompleteEvent;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "product")
-        {           
-            Destroy(other.gameObject);
-            productRecieve++;
+        if(light.Count >= 3)
+        switch (other.tag)
+        {
+            case "EnProduct":                 
+                    productRecieve++;
+                    light[0].SetActive(true);
+                    Destroy(other.gameObject);
+                    break;
+            case "HuProduct":
+                    productRecieve++;
+                    light[1].SetActive(true);
+                    Destroy(other.gameObject);
+                    break;
+            case "TeProduct":
+                    productRecieve++;
+                    light[2].SetActive(true);
+                    Destroy(other.gameObject);
+                    break;
         }
     }
 

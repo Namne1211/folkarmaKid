@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4478812240526016122}
   m_Layer: 0
   m_Name: P_TempCold_Prefab
-  m_TagString: product
+  m_TagString: TeProduct
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,9 +9,11 @@ TagManager:
   - Machine
   - Line
   - Power
-  - product
   - finalPoint
   - Grid
+  - EnProduct
+  - HuProduct
+  - TeProduct
   layers:
   - Default
   - TransparentFX

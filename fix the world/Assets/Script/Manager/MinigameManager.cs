@@ -41,10 +41,6 @@ public class MinigameManager : MonoBehaviour
     public UnityEvent StartHumidmachineEvent;
     public UnityEvent StartTempmachineEvent;
     public UnityEvent StopMachineEvent;
-    [Space]
-    public GameObject light1;
-    public GameObject light2;
-    public GameObject light3;
 
 
 
@@ -133,15 +129,12 @@ public class MinigameManager : MonoBehaviour
         {
             case 0:
                 Instantiate(huProduct, humidMachine.transform.position - new Vector3(0, 0, 1.5f), new Quaternion(0, 0, 0, 0));
-                if (light2 != null)
-                    light2.SetActive(true);
+
                 touchpad.SetActive(true);
                 StopMachineEvent.Invoke();
                 Destroy(maze);
                 break;
             case 1:
-                if(light1 != null)
-                    light1.SetActive(true);
                 Instantiate(enProduct, spawnplace.position, spawnplace.rotation);
                 if (cylinderPlace != null)
                     Destroy(cylinderPlace.gameObject);
@@ -151,9 +144,7 @@ public class MinigameManager : MonoBehaviour
                 Destroy(wheel);
                 break;
             case 2:
-                if (light3 != null)
-                    light3.SetActive(true);
-                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 1.3f), new Quaternion(0, 0, 0, 0));
+                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 1.5f), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
                 StopMachineEvent.Invoke();
