@@ -11,7 +11,7 @@
 [Mm]emoryCaptures/
 [Uu]ser[Ss]ettings/
 
-!/[Ll]ibrary/PackageChache/com.unity.render-pipelines.universal@10.8.1/Runtime/Passes/PostProcessPass.cs
+!/[Ll]ibrary/PackageCache/com.unity.render-pipelines.universal@10.8.1/Runtime/Passes/PostProcessPass.cs
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
