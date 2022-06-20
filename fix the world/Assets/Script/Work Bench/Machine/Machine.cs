@@ -18,6 +18,7 @@ public enum MachineTypes
 
 public class Machine : MonoBehaviour
 {
+    Animator anim;
     public Image alertUI;
     Machine currentuse;
     public TaskManager tasksManager;
@@ -35,12 +36,15 @@ public class Machine : MonoBehaviour
     }
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        Debug.Log(anim.GetBool("Start"));
         Done = false;
         minigameManager.onMinigameDone += DestroyPlantUse;
     }
 
     private void OnTriggerStay(Collider other)
     {
+        
         if (!Done)
            
             if (other.gameObject.tag == "Plant")
@@ -52,7 +56,7 @@ public class Machine : MonoBehaviour
                         if (other.gameObject.GetComponent<Augment>() != null)
                             if (other.gameObject.GetComponent<Augment>().environment == tasksManager.trop)
                             {
-                                Debug.Log("1");
+                                anim.SetBool("Start", true);
                                 currentuse = this;
                                 plantUsed = other.gameObject;
                                 minigameManager.onRunningMinigame?.Invoke(1);
@@ -68,7 +72,7 @@ public class Machine : MonoBehaviour
                         if (other.gameObject.GetComponent<Augment>() != null)
                             if (other.gameObject.GetComponent<Augment>().humid == tasksManager.humid)
                             {
-                                Debug.Log("2");
+                                anim.SetBool("Start", true);
                                 plantUsed = other.gameObject;
                                 currentuse = this;
                                 minigameManager.onRunningMinigame?.Invoke(0);
@@ -84,7 +88,8 @@ public class Machine : MonoBehaviour
                         if (other.gameObject.GetComponent<Augment>() != null)
                             if (other.gameObject.GetComponent<Augment>().temp == tasksManager.temp)
                             {
-                                Debug.Log("3");
+                                anim.SetBool("Start", true);
+                                    
                                 currentuse = this;
                                 plantUsed = other.gameObject;
                                 minigameManager.onRunningMinigame?.Invoke(2);
@@ -111,6 +116,7 @@ public class Machine : MonoBehaviour
         {
             currentuse.alertUI.color = Color.green;
             currentuse.Done = true;
+            currentuse.anim.SetBool("Start", false);
         }
         if(plantUsed != null)
         Destroy(plantUsed);
