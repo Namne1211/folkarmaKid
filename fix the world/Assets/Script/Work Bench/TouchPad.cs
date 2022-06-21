@@ -23,8 +23,8 @@ public class TouchPad : MonoBehaviour
 	bool draging;
 
 	GameObject dragingObj;
-	GameObject current;
-
+	GameObject current,current2,current3;
+	
 	Color highlight;
 	
 	void Start()
@@ -41,23 +41,86 @@ public class TouchPad : MonoBehaviour
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit))
 		{
-			if (hit.collider.tag == "Plant")
+			if (hit.collider.tag == "Plant" || hit.collider.tag == "TeProduct" || hit.collider.tag == "HuProduct")
 			{
-				current = hit.collider.gameObject;
-				if (current.GetComponent<Renderer>().materials.Length > 1)
-					//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
-					current.GetComponent<Renderer>().materials[1].SetFloat("_position", -2.16f);
+				current = hit.collider.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+				current2 = hit.collider.gameObject.transform.GetChild(1).GetChild(0).gameObject;
+				current3 = hit.collider.gameObject.transform.GetChild(2).GetChild(0).gameObject;
+
+				if (current.GetComponent<Renderer>().materials.Length > 1 )
+				{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
+				
+					current.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+					
+				}
+
+				if (current2.GetComponent<Renderer>().materials.Length > 1)
+				{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
+
+					
+					current2.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+				}
 
 			}
 			else
 			{
 				if (current != null)
-					if (current.GetComponent<Renderer>().materials.Length > 1)
-						//current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
+				{
+					if (current.GetComponent<Renderer>().materials.Length > 1 )
+					{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
 						current.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+						
+					}
+					if (current2.GetComponent<Renderer>().materials.Length > 1)
+					{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
+
+						current2.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+					}
+				}
 			}
 
+			if (hit.collider.tag != "Plant")
+			{
+				if (hit.collider.tag == "EnProduct")
+				{
+					current = hit.collider.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+					current2 = hit.collider.gameObject.transform.GetChild(0).GetChild(1).GetChild(0).gameObject;
+					current3 = hit.collider.gameObject.transform.GetChild(0).GetChild(2).GetChild(0).gameObject;
+					if (current.GetComponent<Renderer>().materials.Length > 1)
+					{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
 
+						current.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+						current2.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+						current3.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+
+					}
+
+
+
+				}
+				else
+				{
+					if (current != null )
+					{
+						if (current.GetComponent<Renderer>().materials.Length > 1 )
+						{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
+							current.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+
+
+						
+							current2.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+
+
+						
+						
+							current3.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+
+						}
+						
+
+					}
+				}
+			}
 		}
 		//controll mouse
 		if (istouchpadactive)

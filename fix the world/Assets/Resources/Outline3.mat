@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4556759471597698267
+--- !u!114 &-4472768355643338789
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline2
-  m_Shader: {fileID: -6465566751694194690, guid: 20b2e24e0a1c3a54ca58be4d2f944f3f, type: 3}
+  m_Name: Outline3
+  m_Shader: {fileID: -6465566751694194690, guid: b1a3ae32878c01942ba2d2ab92410924, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -89,7 +89,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_97dbb5f3b82d4041afbca584b67b6445: -2.16
     - Vector1_cf95e60655334e708f2da459c261f56a: 1
     - Vector1_d7b54774a3f84265bcc74df8cdd21e0b: -5.83
     - _AlphaClip: 0
@@ -120,7 +119,7 @@ Material:
     - _ZWrite: 1
     - _position: -1
     m_Colors:
-    - Color_577dbe80e51e4b82a8984c444014d0f1: {r: 0.0082473755, g: 1, b: 0, a: 1}
+    - Color_577dbe80e51e4b82a8984c444014d0f1: {r: 0.007843138, g: 1, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
