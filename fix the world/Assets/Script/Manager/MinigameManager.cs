@@ -139,7 +139,7 @@ public class MinigameManager : MonoBehaviour
                 Instantiate(enProduct, spawnplace.position, spawnplace.rotation);
                 if (cylinderPlace != null)
                     Destroy(cylinderPlace.gameObject);
-                glass.LeanRotate(new Vector3(60, 0, 0), 0.5f);
+                glass.LeanRotate(new Vector3(60, -180, 0), 0.5f);
                 touchpad.SetActive(true);
                 StopMachineEvent.Invoke();
                 Destroy(wheel);
