@@ -12,29 +12,29 @@ public class Combiner : MonoBehaviour
     public static int playtime;
     int currentPlay;
     public TMPro.TextMeshProUGUI textMeshPro;
-    public List<GameObject> light;
+    public List<GameObject> lights;
     public GameObject spinParticle;
     public GameObject winParticle;
 
     public UnityEvent CompleteEvent;
     private void OnTriggerEnter(Collider other)
     {
-        if(light.Count >= 3)
+        if(lights.Count >= 3)
         switch (other.tag)
         {
             case "EnProduct":                 
                     productRecieve++;
-                    light[0].SetActive(true);
+                    lights[0].SetActive(true);
                     Destroy(other.gameObject);
                     break;
             case "HuProduct":
                     productRecieve++;
-                    light[1].SetActive(true);
+                    lights[1].SetActive(true);
                     Destroy(other.gameObject);
                     break;
             case "TeProduct":
                     productRecieve++;
-                    light[2].SetActive(true);
+                    lights[2].SetActive(true);
                     Destroy(other.gameObject);
                     break;
         }
@@ -66,7 +66,7 @@ public class Combiner : MonoBehaviour
         yield return new WaitForSeconds(2);
         spinParticle.SetActive(false);
         winParticle.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         playtime++;
         PlayerPrefs.SetInt("playTime", Combiner.playtime);
         SceneManager.LoadScene(0);
