@@ -12,6 +12,9 @@ public class TaskManager : MonoBehaviour
     public Image en;
     public Image te;
     public Image hu;
+    public Image en2;
+    public Image te2;
+    public Image hu2;
     public Environment trop;
     public tempature temp;
     public humid humid;
@@ -36,12 +39,16 @@ public class TaskManager : MonoBehaviour
         switch (trop){
             case Environment.tropical:
                 en.sprite = Resources.Load<Sprite>("Art/Other/Icon/tropical");
+                en2.sprite = Resources.Load<Sprite>("Art/Other/Icon/tropical");
                 break;
             case Environment.artic:
                 en.sprite = Resources.Load<Sprite>("Art/Other/Icon/artic");
+                en2.sprite = Resources.Load<Sprite>("Art/Other/Icon/artic");
                 break;
             case Environment.desert:
                 en.sprite = Resources.Load<Sprite>("Art/Other/Icon/desert");
+                en2.sprite = Resources.Load<Sprite>("Art/Other/Icon/desert");
+
                 break;
             default:
                 Debug.Log("task error");
@@ -52,12 +59,15 @@ public class TaskManager : MonoBehaviour
         {
             case humid.wet:
                 hu.sprite = Resources.Load<Sprite>("Art/Other/Icon/wet");
+                hu2.sprite = Resources.Load<Sprite>("Art/Other/Icon/wet");
                 break;
             case humid.moist:
                 hu.sprite = Resources.Load<Sprite>("Art/Other/Icon/moist");
+                hu2.sprite = Resources.Load<Sprite>("Art/Other/Icon/moist");
                 break;
             case humid.dry:
                 hu.sprite = Resources.Load<Sprite>("Art/Other/Icon/dry");
+                hu2.sprite = Resources.Load<Sprite>("Art/Other/Icon/dry");
                 break;
             default:
                 Debug.Log("task error");
@@ -68,12 +78,15 @@ public class TaskManager : MonoBehaviour
         {
             case tempature.hot:
                 te.sprite = Resources.Load<Sprite>("Art/Other/Icon/hot");
+                te2.sprite = Resources.Load<Sprite>("Art/Other/Icon/hot");
                 break;
             case tempature.cold:
                 te.sprite = Resources.Load<Sprite>("Art/Other/Icon/cold");
+                te2.sprite = Resources.Load<Sprite>("Art/Other/Icon/cold");
                 break;
             case tempature.warm:
                 te.sprite = Resources.Load<Sprite>("Art/Other/Icon/warm");
+                te2.sprite = Resources.Load<Sprite>("Art/Other/Icon/warm");
                 break;
             default:
                 Debug.Log("task error");

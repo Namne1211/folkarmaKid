@@ -74,9 +74,7 @@ public class CheckPoint : MonoBehaviour
     {
         if (point >= 5)
         {
-            minigameManager.onMinigameDone?.Invoke(2);
-            point = 0;
-            
+            minigameManager.onMinigameDone?.Invoke(2);           
         }
     }
 }

@@ -56,9 +56,11 @@ public class Machine : MonoBehaviour
                         if (other.gameObject.GetComponent<Augment>() != null)
                             if (other.gameObject.GetComponent<Augment>().environment == tasksManager.trop)
                             {
+                               
                                 anim.SetBool("Start", true);
                                 currentuse = this;
-                                plantUsed = other.gameObject;
+                                    currentuse.Done = true;
+                                    plantUsed = other.gameObject;
                                 minigameManager.onRunningMinigame?.Invoke(1);
                             }
                             else
@@ -75,7 +77,8 @@ public class Machine : MonoBehaviour
                                 anim.SetBool("Start", true);
                                 plantUsed = other.gameObject;
                                 currentuse = this;
-                                minigameManager.onRunningMinigame?.Invoke(0);
+                                    currentuse.Done = true;
+                                    minigameManager.onRunningMinigame?.Invoke(0);
                             }
                             else
                             {
@@ -91,7 +94,8 @@ public class Machine : MonoBehaviour
                                 anim.SetBool("Start", true);
                                     
                                 currentuse = this;
-                                plantUsed = other.gameObject;
+                                    currentuse.Done = true;
+                                    plantUsed = other.gameObject;
                                 minigameManager.onRunningMinigame?.Invoke(2);
                             }
                             else

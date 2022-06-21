@@ -7,12 +7,12 @@ using UnityEngine.Events;
 public class Combiner : MonoBehaviour
 {
     public UnityEvent CombinerEvent;
-    public GameObject panel;
     public int productRecieve;
     public static int playtime;
     int currentPlay;
     public TMPro.TextMeshProUGUI textMeshPro;
     public List<GameObject> lights;
+    
     public GameObject spinParticle;
     public GameObject winParticle;
 
@@ -25,16 +25,19 @@ public class Combiner : MonoBehaviour
             case "EnProduct":                 
                     productRecieve++;
                     lights[0].SetActive(true);
+                    lights[3].SetActive(true);
                     Destroy(other.gameObject);
                     break;
             case "HuProduct":
                     productRecieve++;
                     lights[1].SetActive(true);
+                    lights[4].SetActive(true);
                     Destroy(other.gameObject);
                     break;
             case "TeProduct":
                     productRecieve++;
                     lights[2].SetActive(true);
+                    lights[5].SetActive(true);
                     Destroy(other.gameObject);
                     break;
         }
