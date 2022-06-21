@@ -13,7 +13,8 @@ public class Combiner : MonoBehaviour
     int currentPlay;
     public TMPro.TextMeshProUGUI textMeshPro;
     public List<GameObject> light;
-
+    public GameObject spinParticle;
+    public GameObject winParticle;
 
     public UnityEvent CompleteEvent;
     private void OnTriggerEnter(Collider other)
@@ -60,9 +61,11 @@ public class Combiner : MonoBehaviour
 
     IEnumerator ResetgGameState()
     {
-        panel.SetActive(true);
-
+        spinParticle.SetActive(true);
         //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+        spinParticle.SetActive(false);
+        winParticle.SetActive(true);
         yield return new WaitForSeconds(2);
         playtime++;
         PlayerPrefs.SetInt("playTime", Combiner.playtime);

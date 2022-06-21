@@ -145,7 +145,7 @@ public class MinigameManager : MonoBehaviour
                 Destroy(wheel);
                 break;
             case 2:
-                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 1.5f), new Quaternion(0, 0, 0, 0));
+                Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 2f), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
                 StopMachineEvent.Invoke();
