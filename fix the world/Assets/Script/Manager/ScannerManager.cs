@@ -9,6 +9,9 @@ public class ScannerManager : MonoBehaviour
     public GameObject artic;
     public GameObject desert;
     public GameObject tropical;
+    public GameObject artic2;
+    public GameObject desert2;
+    public GameObject tropical2;
     public List<GameObject> ObjToSpawn;
     GameObject toSpawn;
     public int objectLimit = 12;
@@ -23,6 +26,9 @@ public class ScannerManager : MonoBehaviour
     /// 1 == artic
     /// 2 == desert
     /// 3 == tropical
+    /// 4 == artic
+    /// 5 == desert
+    /// 6 == tropical
     /// </param>
     public void SpawnOnScan(int PlantIndex)
     {
@@ -36,44 +42,39 @@ public class ScannerManager : MonoBehaviour
             switch (PlantIndex)
             {
                 case 1:
-                    toSpawn = Instantiate(artic, rndPos, aumentHolder.transform.rotation, aumentHolder.transform);
+                    toSpawn = Instantiate(artic, rndPos, new Quaternion(0,180,0,0), aumentHolder.transform);
                     break;
                 case 2:
-                    toSpawn = Instantiate(desert, rndPos, aumentHolder.transform.rotation, aumentHolder.transform);
+                    toSpawn = Instantiate(artic2, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
                     break;
                 case 3:
-                    toSpawn = Instantiate(tropical, rndPos, aumentHolder.transform.rotation, aumentHolder.transform);
+                    toSpawn = Instantiate(desert, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
+                    break;
+                case 4:
+                    toSpawn = Instantiate(desert2, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
+                    break;
+                case 5:
+                    toSpawn = Instantiate(tropical, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
+                    break;
+                case 6:
+                    toSpawn = Instantiate(tropical, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
                     break;
             }
             if (toSpawn == null) return;
-            int child = toSpawn.transform.childCount;
-            //ObjToSpawn.Add(asd);
-            for (int i = 0; i < child; i++)
-            {
-                ObjToSpawn.Add(toSpawn.transform.GetChild(0).gameObject);
-                toSpawn.transform.GetChild(0).gameObject.GetComponent<dragObject>().onDestroy += removemember;
-                toSpawn.transform.GetChild(0).parent = aumentHolder.transform;
-            }
-            Destroy(toSpawn);
-            if (toSpawn.GetComponent<dragObject>() != null)
-            {
-                toSpawn.GetComponent<dragObject>().onDestroy += removemember;
-            }
+
+            ObjToSpawn.Add(toSpawn.transform.gameObject);
+            toSpawn.gameObject.GetComponent<dragObject>().onDestroy += removemember;
+            
+
         }
 
     }
 
+    //remove member of object count
     public void removemember(GameObject objectToRemove)
     {
         ObjToSpawn.Remove(objectToRemove);
+        Debug.Log(ObjToSpawn.Count);
     }
 
-    public void RemoveAll()
-    {
-        if(ObjToSpawn!=null)
-        foreach(var obj in ObjToSpawn)
-        {
-            obj.GetComponent<dragObject>().onDestroy?.Invoke(obj);
-        }
-    }
 }

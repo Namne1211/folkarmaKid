@@ -42,6 +42,7 @@ public class MinigameManager : MonoBehaviour
     public UnityEvent StartTempmachineEvent;
     public UnityEvent StopMachineEvent;
 
+    public GameObject editor;
 
 
 
@@ -170,5 +171,15 @@ public class MinigameManager : MonoBehaviour
         PlayerPrefs.SetInt("playTime", Combiner.playtime);
         SceneManager.LoadScene(0);
         
+    }
+    private void Update()
+    {
+        if (Input.touchCount > 3 && !editor.activeSelf)
+        {
+            editor.SetActive(true);
+        }else if(Input.touchCount > 3 && editor.activeSelf)
+        {
+            editor.SetActive(false);
+        }
     }
 }
