@@ -57,7 +57,7 @@ public class ScannerManager : MonoBehaviour
                     toSpawn = Instantiate(tropical, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
                     break;
                 case 6:
-                    toSpawn = Instantiate(tropical, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
+                    toSpawn = Instantiate(tropical2, rndPos, new Quaternion(0, 180, 0, 0), aumentHolder.transform);
                     break;
             }
             if (toSpawn == null) return;

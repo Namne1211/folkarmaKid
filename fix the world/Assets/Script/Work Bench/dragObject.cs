@@ -66,7 +66,7 @@ public class dragObject : MonoBehaviour
         Debug.Log(transform.position.z);
         Debug.Log(horizontalBounderies);
         //decide moving range
-        Vector3 movingRange = GetMouseWorldPos() + mOffset + new Vector3(0, 1, 0);
+        Vector3 movingRange = GetMouseWorldPos() + mOffset + new Vector3(0, 0.5f, 0);
 
         transform.position = movingRange;
     }

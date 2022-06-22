@@ -47,6 +47,7 @@ public class TouchPad : MonoBehaviour
 		{
 			if (hit.collider.tag == "Plant")
 			{
+				if(dragingObj!=null)
 				foreach (GameObject child in machines)
 				{
 					if (child.GetComponent<Machine>() != null)
@@ -55,7 +56,7 @@ public class TouchPad : MonoBehaviour
 					if (child.transform.GetChild(0).GetComponent<Renderer>() != null)
 						if (child.transform.GetChild(0).GetComponent<Renderer>().materials.Length > 1)
 						{
-							child.transform.GetChild(0).GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+							child.transform.GetChild(0).GetComponent<Renderer>().materials[1].SetFloat("_position", 0.05f);
 						}
 				}
 			}

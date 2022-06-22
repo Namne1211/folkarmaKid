@@ -37,7 +37,6 @@ public class Machine : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        Debug.Log(anim.GetBool("Start"));
         Done = false;
         minigameManager.onMinigameDone += DestroyPlantUse;
     }
@@ -51,7 +50,7 @@ public class Machine : MonoBehaviour
             {
                 if (Input.GetMouseButtonUp(0))
                     switch (machineType)
-                {
+                    {
                     case MachineTypes.environment:
                         if (other.gameObject.GetComponent<Augment>() != null)
                             if (other.gameObject.GetComponent<Augment>().environment == tasksManager.trop)
