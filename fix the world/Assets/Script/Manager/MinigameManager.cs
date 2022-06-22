@@ -43,7 +43,7 @@ public class MinigameManager : MonoBehaviour
     public UnityEvent StopMachineEvent;
 
     public GameObject editor;
-
+    public GameObject ARCam;
 
 
     private void Awake()
@@ -103,6 +103,7 @@ public class MinigameManager : MonoBehaviour
         switch (gameIndex)
         {
             case 0:
+                ARCam.SetActive(false);
                 touchpad.SetActive(false);
                 if (maze != null)
                     maze.SetActive(true);
@@ -110,12 +111,14 @@ public class MinigameManager : MonoBehaviour
 
                 break;
             case 1:
+                ARCam.SetActive(false);
                 touchpad.SetActive(false);
                 if (wheel != null)
                     wheel.SetActive(true);
                 StartHumidmachineEvent.Invoke();
                 break;
             case 2:
+                ARCam.SetActive(false);
                 touchpad.SetActive(false);
                 if (line != null)
                     line.SetActive(true);
@@ -129,6 +132,7 @@ public class MinigameManager : MonoBehaviour
         switch (gameIndex)
         {
             case 0:
+                ARCam.SetActive(true);
                 Instantiate(huProduct, humidMachine.transform.position - new Vector3(0, 0, 1.5f), new Quaternion(0, 0, 0, 0));
 
                 touchpad.SetActive(true);
@@ -136,6 +140,7 @@ public class MinigameManager : MonoBehaviour
                 Destroy(maze);
                 break;
             case 1:
+                ARCam.SetActive(true);
                 Instantiate(enProduct, spawnplace.position, spawnplace.rotation);
                 if (cylinderPlace != null)
                     Destroy(cylinderPlace.gameObject);
@@ -145,6 +150,7 @@ public class MinigameManager : MonoBehaviour
                 Destroy(wheel);
                 break;
             case 2:
+                ARCam.SetActive(true);
                 Instantiate(teProduct, tempatureMachine.transform.position - new Vector3(0, 0.5f, 2f), new Quaternion(0, 0, 0, 0));
                 touchpad.SetActive(true);
 
