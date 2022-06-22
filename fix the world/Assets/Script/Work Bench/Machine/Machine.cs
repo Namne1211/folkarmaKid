@@ -24,7 +24,7 @@ public class Machine : MonoBehaviour
     public TaskManager tasksManager;
     public MachineTypes machineType;
     public MinigameManager minigameManager;
-    bool Done;
+    public bool Done;
     public UnityEvent WrongMachineEvent;
     GameObject plantUsed;
     private void Update()

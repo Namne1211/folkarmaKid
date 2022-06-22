@@ -23,7 +23,9 @@ public class TouchPad : MonoBehaviour
 	bool draging;
 
 	GameObject dragingObj;
-	GameObject current,current2,current3;
+
+	public List<GameObject> machines = new List<GameObject>();
+	private List<GameObject> currents = new List<GameObject>();
 	
 	Color highlight;
 	
@@ -39,88 +41,86 @@ public class TouchPad : MonoBehaviour
 	{
 		Ray ray = Camera.main.ScreenPointToRay(targetObject.transform.position);
 		RaycastHit hit;
+
+
 		if (Physics.Raycast(ray, out hit))
 		{
+			if (hit.collider.tag == "Plant")
+			{
+				foreach (GameObject child in machines)
+				{
+					if (child.GetComponent<Machine>() != null)
+						if (child.GetComponent<Machine>().Done) continue;
+
+					if (child.transform.GetChild(0).GetComponent<Renderer>() != null)
+						if (child.transform.GetChild(0).GetComponent<Renderer>().materials.Length > 1)
+						{
+							child.transform.GetChild(0).GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+						}
+				}
+			}
+            else
+            {
+				foreach (GameObject child in machines)
+				{
+					if (child.GetComponent<Machine>() != null)
+						if (child.GetComponent<Machine>().Done) continue;
+
+					if (child.transform.GetChild(0).GetComponent<Renderer>() != null)
+						if (child.transform.GetChild(0).GetComponent<Renderer>().materials.Length > 1)
+						{
+							child.transform.GetChild(0).GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
+						}
+				}
+			}
 			if (hit.collider.tag == "Plant" || hit.collider.tag == "TeProduct" || hit.collider.tag == "HuProduct")
 			{
-				current = hit.collider.gameObject.transform.GetChild(0).GetChild(0).gameObject;
-				current2 = hit.collider.gameObject.transform.GetChild(1).GetChild(0).gameObject;
-				current3 = hit.collider.gameObject.transform.GetChild(2).GetChild(0).gameObject;
+				for(int i=0; i < hit.transform.childCount; i++)
+                {
+					if (hit.transform.GetChild(i).GetComponent<Renderer>() != null)
+						currents.Add(hit.transform.GetChild(i).gameObject);
+                }
 
-				if (current.GetComponent<Renderer>().materials.Length > 1 )
-				{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
-				
-					current.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
-					
+				foreach(GameObject child in currents)
+                {
+					if (child.GetComponent<Renderer>().materials.Length > 1)
+					{
+						child.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+					}
 				}
 
-				if (current2.GetComponent<Renderer>().materials.Length > 1)
-				{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
-
-					
-					current2.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+			}
+			else if (hit.collider.tag == "EnProduct")
+			{
+				for (int i = 0; i < hit.transform.GetChild(0).childCount; i++)
+				{
+					if (hit.transform.GetChild(0).GetChild(i).GetComponent<Renderer>() != null)
+						currents.Add(hit.transform.GetChild(0).GetChild(i).gameObject);
 				}
 
+				foreach (GameObject child in currents)
+				{
+					if (child.GetComponent<Renderer>().materials.Length > 1)
+					{
+						child.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
+					}
+				}
 			}
 			else
 			{
-				if (current != null)
+				if (currents.Count>0)
 				{
-					if (current.GetComponent<Renderer>().materials.Length > 1 )
-					{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
-						current.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
-						
-					}
-					if (current2.GetComponent<Renderer>().materials.Length > 1)
-					{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
-
-						current2.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
-					}
-				}
-			}
-
-			if (hit.collider.tag != "Plant")
-			{
-				if (hit.collider.tag == "EnProduct")
-				{
-					current = hit.collider.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-					current2 = hit.collider.gameObject.transform.GetChild(0).GetChild(1).GetChild(0).gameObject;
-					current3 = hit.collider.gameObject.transform.GetChild(0).GetChild(2).GetChild(0).gameObject;
-					if (current.GetComponent<Renderer>().materials.Length > 1)
-					{//current.GetComponent<Renderer>().materials[1].SetColor("_color", highlight);
-
-						current.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
-						current2.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
-						current3.GetComponent<Renderer>().materials[1].SetFloat("_position", 0.1f);
-
-					}
-
-
-
-				}
-				else
-				{
-					if (current != null )
+					foreach (GameObject child in currents)
 					{
-						if (current.GetComponent<Renderer>().materials.Length > 1 )
-						{       //current.GetComponent<Renderer>().materials[1].SetColor("_color", Color.white);
-							current.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
-
-
-						
-							current2.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
-
-
-						
-						
-							current3.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
-
+						if(child!=null)
+						if (child.GetComponent<Renderer>().materials.Length > 1)
+						{
+							child.GetComponent<Renderer>().materials[1].SetFloat("_position", -1f);
 						}
-						
-
 					}
+					currents.Clear();
 				}
-			}
+			}		
 		}
 		//controll mouse
 		if (istouchpadactive)

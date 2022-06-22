@@ -19,7 +19,7 @@ public class Combiner : MonoBehaviour
     public UnityEvent CompleteEvent;
     private void OnTriggerEnter(Collider other)
     {
-        if(lights.Count >= 3)
+        if(lights.Count >= 5)
         switch (other.tag)
         {
             case "EnProduct":                 
@@ -58,8 +58,8 @@ public class Combiner : MonoBehaviour
             //change screen and play animation
             
             CombinerEvent.Invoke();
-}
-        textMeshPro.text = PlayerPrefs.GetInt("playTime").ToString();
+        }
+       textMeshPro.text = PlayerPrefs.GetInt("playTime").ToString();
     }
 
     IEnumerator ResetgGameState()
