@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ScannerManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ScannerManager : MonoBehaviour
     public List<GameObject> ObjToSpawn;
     GameObject toSpawn;
     public int objectLimit = 12;
+    public UnityEvent WinEvent;
 
     private void Start()
     {
@@ -37,7 +39,7 @@ public class ScannerManager : MonoBehaviour
         Debug.Log(augment);
         if (augment < objectLimit)
         {
-            
+            WinEvent.Invoke();
             Vector3 rndPos = new Vector3(Random.Range(-2, 2), aumentHolder.transform.position.y, Random.Range(-3, 0));
             switch (PlantIndex)
             {
